@@ -4,15 +4,17 @@ import jakarta.xml.bind.annotation.*;
 
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 
 @XmlRootElement(name = "Container")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Container {
-    @XmlElementWrapper(name = "Id")
+    @XmlElement(name = "Id")
     private String id;
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
-    private LocalDateTime shippingDate;
+    @XmlElement(name = "ShippingDate")
+    @XmlJavaTypeAdapter(OffsetDateTimeAdapter.class)
+    private OffsetDateTime shippingDate;
 
     @XmlElementWrapper(name = "parcels")
     @XmlElement(name="Parcel")
@@ -23,15 +25,15 @@ public class Container {
     }
 
     public void setId(String id) {
-        id = id;
+        this.id = id;
     }
 
-    public LocalDateTime getShippingDate() {
+    public OffsetDateTime getShippingDate() {
         return shippingDate;
     }
 
-    public void setShippingDate(LocalDateTime shippingDate) {
-        shippingDate = shippingDate;
+    public void setShippingDate(OffsetDateTime shippingDate) {
+        this.shippingDate = shippingDate;
     }
 
     public ArrayList<Parcel> getParcels() {
