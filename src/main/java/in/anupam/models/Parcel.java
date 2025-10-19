@@ -13,6 +13,12 @@ public class Parcel {
     private BigDecimal weight;
     private BigDecimal value;
 
+    public Parcel(Receipient receipient, BigDecimal weight, BigDecimal value) {
+        this.receipient = receipient;
+        this.weight = weight;
+        this.value = value;
+    }
+
 
     public Receipient getReceipient() {
         return receipient;

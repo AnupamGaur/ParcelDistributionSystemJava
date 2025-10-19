@@ -18,7 +18,7 @@ public class Main {
     Container container = parseXml("Container_68465468.xml");
         System.out.println(container.getId());
         System.out.println(container.getShippingDate());
-        System.out.println(container.getParcels());
+        System.out.println(container.getParcels().size());
     }
 
 
