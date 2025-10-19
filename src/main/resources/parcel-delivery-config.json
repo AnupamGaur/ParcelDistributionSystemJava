@@ -1,0 +1,80 @@
+{
+  "industryType": "Parcel Delivery",
+  "departments": {
+    "MAIL": {
+      "name": "Mail",
+      "description": "Handles lightweight parcels",
+      "requiresApproval": false,
+      "priority": 1
+    },
+    "REGULAR": {
+      "name": "Regular",
+      "description": "Handles standard parcels",
+      "requiresApproval": false,
+      "priority": 2
+    },
+    "HEAVY": {
+      "name": "Heavy",
+      "description": "Handles heavy parcels",
+      "requiresApproval": false,
+      "priority": 3
+    },
+    "INSURANCE": {
+      "name": "Insurance",
+      "description": "Handles high-value parcel approvals",
+      "requiresApproval": true,
+      "priority": 0
+    }
+  },
+  "rules": [
+    {
+      "name": "High Value Approval",
+      "type": "VALUE",
+      "condition": "GREATER_THAN",
+      "action": "REQUIRE_APPROVAL",
+      "parameters": {
+        "threshold": 1000,
+        "department": "INSURANCE"
+      },
+      "priority": 1
+    },
+    {
+      "name": "Mail Weight Assignment",
+      "type": "WEIGHT",
+      "condition": "LESS_THAN_OR_EQUAL",
+      "action": "ASSIGN_DEPARTMENT",
+      "parameters": {
+        "threshold": 1.0,
+        "department": "MAIL"
+      },
+      "priority": 2
+    },
+    {
+      "name": "Regular Weight Assignment",
+      "type": "WEIGHT",
+      "condition": "BETWEEN",
+      "action": "ASSIGN_DEPARTMENT",
+      "parameters": {
+        "min": 1.0,
+        "max": 10.0,
+        "department": "REGULAR"
+      },
+      "priority": 3
+    },
+    {
+      "name": "Heavy Weight Assignment",
+      "type": "WEIGHT",
+      "condition": "GREATER_THAN",
+      "action": "ASSIGN_DEPARTMENT",
+      "parameters": {
+        "threshold": 10.0,
+        "department": "HEAVY"
+      },
+      "priority": 4
+    }
+  ],
+  "globalSettings": {
+    "currency": "EUR",
+    "weightUnit": "kg"
+  }
+}
