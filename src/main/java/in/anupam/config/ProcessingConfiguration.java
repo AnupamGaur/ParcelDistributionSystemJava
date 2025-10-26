@@ -1,6 +1,7 @@
 package in.anupam.config;
 
 import java.util.Map;
+import java.util.List;
 
 public class ProcessingConfiguration {
     private String industryType;

@@ -10,14 +10,16 @@ import java.math.BigDecimal;
 public class Parcel {
     @XmlElement(name = "Receipient")
     private Receipient receipient;
+    @XmlElement(name = "Weight")
     private BigDecimal weight;
+    @XmlElement(name = "Value")
     private BigDecimal value;
 
-    public Parcel(Receipient receipient, BigDecimal weight, BigDecimal value) {
-        this.receipient = receipient;
-        this.weight = weight;
-        this.value = value;
-    }
+//    public Parcel(Receipient receipient, BigDecimal weight, BigDecimal value) {
+//        this.receipient = receipient;
+//        this.weight = weight;
+//        this.value = value;
+//    }
 
 
     public Receipient getReceipient() {

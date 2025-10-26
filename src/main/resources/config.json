@@ -1,0 +1,38 @@
+[
+  {
+    "level": 1,
+    "Rule":{
+      "operator":">",
+      "attrib":"value",
+      "threshold":"1000"
+    },
+    "Department":"Insurance"
+  },
+  {
+    "level": 2,
+    "Rule":{
+      "operator":"<",
+      "attrib":"weight",
+      "threshold":"1"
+    },
+    "Department":"Mail"
+  },
+  {
+    "level": 3,
+    "Rule":{
+      "operator":"<",
+      "attrib":"weight",
+      "threshold":"10"
+    },
+    "Department":"Regular"
+  },
+  {
+    "level": 4,
+    "Rule":{
+      "operator":">",
+      "attrib":"value",
+      "threshold":"10000"
+    },
+    "Department":"UltraCostly"
+  }
+]
