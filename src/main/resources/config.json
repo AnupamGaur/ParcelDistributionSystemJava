@@ -18,13 +18,22 @@
     "Department":"Mail"
   },
   {
-    "level": 3,
+    "level": 2,
     "Rule":{
-      "operator":"<",
+      "operator":"<=",
       "attrib":"weight",
       "threshold":"10"
     },
     "Department":"Regular"
+  },
+  {
+    "level": 2,
+    "Rule":{
+      "operator":">",
+      "attrib":"weight",
+      "threshold":"10"
+    },
+    "Department":"Heavy"
   },
   {
     "level": 4,

@@ -3,6 +3,8 @@ package in.anupam;
 import in.anupam.config.ConfigLoader;
 import in.anupam.models.Container;
 
+import in.anupam.models.Parcel;
+import in.anupam.processors.ParcelProcessor;
 import in.anupam.rules.RuleEntry;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Unmarshaller;
@@ -12,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static in.anupam.parsers.ParcelXMLParser.parseXml;
@@ -21,11 +24,19 @@ import static in.anupam.parsers.ParcelXMLParser.parseXml;
 public class Main {
     public static void main(String[] args) throws JAXBException, FileNotFoundException {
     Container container = parseXml("Container_68465468.xml");
-        System.out.println(container.getId());
-        System.out.println(container.getShippingDate());
-        System.out.println(container.getParcels());
-        System.out.println(container.getParcels().get(2).getValue());
+//        System.out.println(container.getId());
+//        System.out.println(container.getShippingDate());
+//        System.out.println(container.getParcels());
+//        System.out.println(container.getParcels().get(2).getValue());
         final List<RuleEntry> RULES = ConfigLoader.loadRules();
-        System.out.println(RULES.get(0).department);
+//        System.out.println(RULES.get(0).department);
+        ParcelProcessor parcelProcessor  = new ParcelProcessor();
+        ArrayList<Parcel> parcels = container.getParcels();
+        for (Parcel parcel: parcels){
+            System.out.println("Value:"+parcel.getValue());
+            System.out.println("Weight:"+parcel.getWeight());
+            System.out.println(parcelProcessor.getPipelineFlow(parcel));
+        }
+//        System.out.println(parcelProcessor.getPipelineFlow(parcel));
     }
 }
