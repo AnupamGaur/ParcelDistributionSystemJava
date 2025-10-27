@@ -15,12 +15,6 @@ public class Parcel {
     @XmlElement(name = "Value")
     private double value;
 
-//    public Parcel(Receipient receipient, BigDecimal weight, BigDecimal value) {
-//        this.receipient = receipient;
-//        this.weight = weight;
-//        this.value = value;
-//    }
-
 
     public Receipient getReceipient() {
         return receipient;

@@ -17,13 +17,6 @@ public class Address {
     @XmlElement(name = "City")
     private String city;
 
-//    public Address(String street, String houseNumber, String postalCode, String city){
-//        this.street = street;
-//        this.houseNumber = houseNumber;
-//        this.postalCode = postalCode;
-//        this.city = city;
-//    }
-
     public String getStreet() {
         return street;
     }

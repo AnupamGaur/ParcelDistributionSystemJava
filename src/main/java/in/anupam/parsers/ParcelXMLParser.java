@@ -36,27 +36,4 @@ public class ParcelXMLParser {
             throw new UncheckedIOException(e);
         }
     }
-
-//    public List<Parcel> parseXML(InputStream xmlInputStream) throws Exception{
-//        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-//        DocumentBuilder builder = factory.newDocumentBuilder();
-//        Document document = builder.parse(xmlInputStream);
-//
-//        List<Parcel> parcels = new ArrayList<>();
-//        NodeList parcelNodes = document.getElementsByTagName("Parcel");
-//
-//        for (int i = 0; i < parcelNodes.getLength(); i++) {
-//            Node parcelNode = parcelNodes.item(i);
-//            if (parcelNode.getNodeType() == Node.ELEMENT_NODE) {
-//                Element parcelElement = (Element) parcelNode;
-//                parcels.add(parseParcel(parcelElement));
-//            }
-//        }
-//
-//        return parcels;
-//    }
-//
-//    private Parcel parseParcel(Element parcelElement) {
-//
-//    }
 }

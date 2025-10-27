@@ -1,6 +1,7 @@
 package in.anupam.rules;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import in.anupam.models.Department;
 
 public class RuleEntry {
         public int level;
@@ -8,7 +9,7 @@ public class RuleEntry {
         public InnerRule rule;
 
         @JsonProperty("Department")
-        public String department;
+        public Department department;
 
         public static class InnerRule {
             public String operator;

@@ -1,0 +1,38 @@
+[
+  {
+    "level": 1,
+    "Rule":{
+      "operator":">",
+      "attrib":"value",
+      "val":"1000"
+    },
+    "Department":"Insurance"
+  },
+  {
+    "level": 2,
+    "Rule":{
+      "operator":"<=",
+      "attrib":"weight",
+      "val":"1"
+    },
+    "Department":"Mail"
+  },
+  {
+    "level": 2,
+    "Rule":{
+      "operator":"<=",
+      "attrib":"weight",
+      "val":"10"
+    },
+    "Department":"Regular"
+  },
+  {
+    "level": 2,
+    "Rule":{
+      "operator":"<=",
+      "attrib":"weight",
+      "val":"10"
+    },
+    "Department":"Regular"
+  }
+]

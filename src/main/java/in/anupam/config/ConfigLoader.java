@@ -16,7 +16,6 @@ private static final ObjectMapper MAPPER = new ObjectMapper();
             if (is == null) {
                 throw new IllegalStateException("config.json not found on classpath");
             }
-//            System.out.println(is+" This is 'is' of type InputStream ");
             return MAPPER.readValue(is, new TypeReference<List<RuleEntry>>() {});
         } catch (IOException e) {
             throw new RuntimeException("Failed to load config.json", e);

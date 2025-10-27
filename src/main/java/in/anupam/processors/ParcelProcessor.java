@@ -1,6 +1,7 @@
 package in.anupam.processors;
 
 import in.anupam.config.ConfigLoader;
+import in.anupam.models.Department;
 import in.anupam.models.Parcel;
 import in.anupam.rules.RuleEntry;
 
@@ -13,12 +14,9 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class ParcelProcessor {
-    public ArrayList<String> getPipelineFlow(Parcel parcel) {
-//        System.out.println(RULES+ "\nRULES");
+    public ArrayList<Department> getPipelineFlow(Object ob) {
         final List<RuleEntry> RULES = ConfigLoader.loadRules("config.json");
-        ArrayList<String> flow = new ArrayList<>();
-
-        // Group by level, in ascending order (1, 2, 3, …)
+        ArrayList<Department> flow = new ArrayList<>();
         Map<Integer, List<RuleEntry>> byLevel = RULES.stream()
                 .collect(Collectors.groupingBy(r -> r.level, TreeMap::new, Collectors.toList()));
 
@@ -26,7 +24,7 @@ public class ParcelProcessor {
             boolean matchedAtThisLevel = false;
 
             for (RuleEntry re : levelEntry.getValue()) {
-                double left = resolveNumeric(parcel, re.rule.attrib);
+                double left = resolveNumeric(ob, re.rule.attrib);
                 double right = re.rule.val;
 
                 if (compare(left, re.rule.operator, right)) {
@@ -55,7 +53,6 @@ public class ParcelProcessor {
             String getter = "get" + Character.toUpperCase(attrib.charAt(0)) + attrib.substring(1);
             Method m = target.getClass().getMethod(getter);
             Object v = m.invoke(target);
-//            System.out.println(v+"VVVV"+);
             return ((Number) v).doubleValue();
         } catch (NoSuchMethodException e) {
             try {
