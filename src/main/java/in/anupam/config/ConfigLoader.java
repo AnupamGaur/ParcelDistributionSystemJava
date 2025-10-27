@@ -8,20 +8,6 @@ import java.io.InputStream;
 import java.util.List;
 
 public class ConfigLoader {
-//    private final ObjectMapper objectMapper;
-//    public ConfigLoader() {
-//        this.objectMapper = new ObjectMapper();
-//    }
-//
-//    public ProcessingConfiguration loadConfiguration(String configPath) throws IOException {
-//        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(configPath)) {
-//            if (inputStream == null) {
-//                throw new IOException("Configuration file not found: " + configPath);
-//            }
-//            return objectMapper.readValue(inputStream, ProcessingConfiguration.class);
-//        }
-//    }
-//
 private static final ObjectMapper MAPPER = new ObjectMapper();
     public static List<RuleEntry> loadRules(String filepath) {
         try (InputStream is = Thread.currentThread()

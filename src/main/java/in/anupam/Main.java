@@ -6,14 +6,9 @@ import in.anupam.models.Container;
 import in.anupam.models.Parcel;
 import in.anupam.processors.ParcelProcessor;
 import in.anupam.rules.RuleEntry;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.Unmarshaller;
 
 import jakarta.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.util.ArrayList;
 import java.util.List;
 

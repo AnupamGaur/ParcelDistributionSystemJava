@@ -4,16 +4,16 @@
     "Rule":{
       "operator":">",
       "attrib":"value",
-      "threshold":"1000"
+      "val":"1000"
     },
     "Department":"Insurance"
   },
   {
     "level": 2,
     "Rule":{
-      "operator":"<",
+      "operator":"<=",
       "attrib":"weight",
-      "threshold":"1"
+      "val":"1"
     },
     "Department":"Mail"
   },
@@ -22,7 +22,7 @@
     "Rule":{
       "operator":"<=",
       "attrib":"weight",
-      "threshold":"10"
+      "val":"10"
     },
     "Department":"Regular"
   },
@@ -31,7 +31,7 @@
     "Rule":{
       "operator":">",
       "attrib":"weight",
-      "threshold":"10"
+      "val":"10"
     },
     "Department":"Heavy"
   }

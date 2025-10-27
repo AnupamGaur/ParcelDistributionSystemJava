@@ -1,10 +1,7 @@
 package in.anupam.processors;
 
 import in.anupam.config.ConfigLoader;
-import in.anupam.config.ProcessingConfiguration;
 import in.anupam.models.Parcel;
-import in.anupam.models.ProcessingResult;
-import in.anupam.rules.RuleEngine;
 import in.anupam.rules.RuleEntry;
 
 import java.lang.reflect.Field;
@@ -30,12 +27,11 @@ public class ParcelProcessor {
 
             for (RuleEntry re : levelEntry.getValue()) {
                 double left = resolveNumeric(parcel, re.rule.attrib);
-                double right = re.rule.threshold;
+                double right = re.rule.val;
 
                 if (compare(left, re.rule.operator, right)) {
                     flow.add(re.department);
                     matchedAtThisLevel = true;
-                    // mimic else-if within the same level: stop after first match
                     break;
                 }
             }

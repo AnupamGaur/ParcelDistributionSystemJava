@@ -1,18 +1,12 @@
-import in.anupam.config.ConfigLoader;
 import in.anupam.models.Container;
-import in.anupam.models.Parcel;
-import in.anupam.parsers.ParcelXMLParser;
 import jakarta.xml.bind.JAXBException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.time.OffsetDateTime;
-import java.util.List;
 
 import static in.anupam.parsers.ParcelXMLParser.parseXml;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -72,7 +66,7 @@ public class XmlParserTest {
     @Test
     @DisplayName("Scenario if file does not exists")
     void file_notExists() {
-        assertThrows(UncheckedIOException.class, () -> {
+        assertThrows(FileNotFoundException.class, () -> {
             parseXml("random.xml");
         });
     }

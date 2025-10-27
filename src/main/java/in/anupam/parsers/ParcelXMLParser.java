@@ -22,8 +22,16 @@ public class ParcelXMLParser {
         JAXBContext context = JAXBContext.newInstance(Container.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
 
-        try(FileReader reader = new FileReader(filename)) {
-            return (Container) unmarshaller.unmarshal(reader);
+        // Load from classpath (resources folder)
+        InputStream inputStream = ParcelXMLParser.class.getClassLoader()
+                .getResourceAsStream(filename);
+
+        if (inputStream == null) {
+            throw new FileNotFoundException("File not found in resources: " + filename);
+        }
+
+        try(inputStream) {
+            return (Container) unmarshaller.unmarshal(inputStream);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
