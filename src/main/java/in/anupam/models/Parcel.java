@@ -11,9 +11,9 @@ public class Parcel {
     @XmlElement(name = "Receipient")
     private Receipient receipient;
     @XmlElement(name = "Weight")
-    private BigDecimal weight;
+    private double weight;
     @XmlElement(name = "Value")
-    private BigDecimal value;
+    private double value;
 
 //    public Parcel(Receipient receipient, BigDecimal weight, BigDecimal value) {
 //        this.receipient = receipient;
@@ -30,19 +30,19 @@ public class Parcel {
         this.receipient = receipient;
     }
 
-    public BigDecimal getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(BigDecimal weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public BigDecimal getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(double value) {
         this.value = value;
     }
 }

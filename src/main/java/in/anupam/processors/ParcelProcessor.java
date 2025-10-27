@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class ParcelProcessor {
     public ArrayList<String> getPipelineFlow(Parcel parcel) {
 //        System.out.println(RULES+ "\nRULES");
-        final List<RuleEntry> RULES = ConfigLoader.loadRules();
+        final List<RuleEntry> RULES = ConfigLoader.loadRules("config.json");
         ArrayList<String> flow = new ArrayList<>();
 
         // Group by level, in ascending order (1, 2, 3, …)
@@ -39,13 +39,10 @@ public class ParcelProcessor {
                     break;
                 }
             }
-
-            // If you want a default per-level, you could add a special rule in JSON
-            // (e.g., operator: "default") or handle it here if (!matchedAtThisLevel) { ... }
         }
         return flow;
     }
-    private static boolean compare(double left, String op, double right) {
+    public static boolean compare(double left, String op, double right) {
         switch (op) {
             case "<":  return left < right;
             case "<=": return left <= right;
@@ -57,12 +54,12 @@ public class ParcelProcessor {
         }
     }
 
-    private static double resolveNumeric(Object target, String attrib) {
+    public static double resolveNumeric(Object target, String attrib) {
         try {
-            // Try getter first: getValue(), getWeight(), etc.
             String getter = "get" + Character.toUpperCase(attrib.charAt(0)) + attrib.substring(1);
             Method m = target.getClass().getMethod(getter);
             Object v = m.invoke(target);
+//            System.out.println(v+"VVVV"+);
             return ((Number) v).doubleValue();
         } catch (NoSuchMethodException e) {
             try {

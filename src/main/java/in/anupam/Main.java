@@ -27,8 +27,8 @@ public class Main {
 //        System.out.println(container.getId());
 //        System.out.println(container.getShippingDate());
 //        System.out.println(container.getParcels());
-//        System.out.println(container.getParcels().get(2).getValue());
-        final List<RuleEntry> RULES = ConfigLoader.loadRules();
+        System.out.println(container.getParcels().get(0).getReceipient().getName());
+        final List<RuleEntry> RULES = ConfigLoader.loadRules("config.json");
 //        System.out.println(RULES.get(0).department);
         ParcelProcessor parcelProcessor  = new ParcelProcessor();
         ArrayList<Parcel> parcels = container.getParcels();

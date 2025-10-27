@@ -23,10 +23,10 @@ public class ConfigLoader {
 //    }
 //
 private static final ObjectMapper MAPPER = new ObjectMapper();
-    public static List<RuleEntry> loadRules() {
+    public static List<RuleEntry> loadRules(String filepath) {
         try (InputStream is = Thread.currentThread()
                 .getContextClassLoader()
-                .getResourceAsStream("config.json")) {
+                .getResourceAsStream(filepath)) {
             if (is == null) {
                 throw new IllegalStateException("config.json not found on classpath");
             }

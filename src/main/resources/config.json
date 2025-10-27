@@ -34,14 +34,5 @@
       "threshold":"10"
     },
     "Department":"Heavy"
-  },
-  {
-    "level": 4,
-    "Rule":{
-      "operator":">",
-      "attrib":"value",
-      "threshold":"10000"
-    },
-    "Department":"UltraCostly"
   }
 ]

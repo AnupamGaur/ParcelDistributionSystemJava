@@ -31,13 +31,28 @@ public class Address {
     public String getHouseNumber() {
         return houseNumber;
     }
-
     public String getPostalCode() {
         return postalCode;
     }
 
     public String getCity() {
         return city;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setHouseNumber(String houseNumber) {
+        this.houseNumber = houseNumber;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
 }
