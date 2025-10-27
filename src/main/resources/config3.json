@@ -22,17 +22,26 @@
     "Rule":{
       "operator":"<=",
       "attrib":"weight",
-      "val":"11"
+      "val":"10"
     },
     "Department":"Regular"
   },
   {
     "level": 2,
     "Rule":{
-      "operator":">",
+      "operator":"<",
       "attrib":"weight",
-      "val":"11"
+      "val":"100"
     },
     "Department":"Heavy"
+  },
+  {
+    "level": 2,
+    "Rule":{
+      "operator":">=",
+      "attrib":"weight",
+      "val":"100"
+    },
+    "Department":"UltraHeavy"
   }
 ]

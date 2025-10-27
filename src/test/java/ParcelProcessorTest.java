@@ -1,7 +1,4 @@
-import in.anupam.models.Address;
-import in.anupam.models.Container;
-import in.anupam.models.Parcel;
-import in.anupam.models.Receipient;
+import in.anupam.models.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -12,6 +9,7 @@ import in.anupam.processors.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,6 +17,7 @@ public class ParcelProcessorTest {
 //    getPipelineFlow
 //    Parcel parcel = new Parcel(Re)
     Parcel parcel = new Parcel();
+    String config = "config.json";
     ParcelProcessor processor = new ParcelProcessor();
 
     @BeforeEach
@@ -33,9 +32,11 @@ public class ParcelProcessorTest {
         parcel.setValue(2000.0);
         parcel.setWeight(15.0);
 
-        ArrayList<String> flow = processor.getPipelineFlow(parcel);
+        ArrayList<Department> flow = processor.getPipelineFlow(parcel,config);
 
-        assertEquals(Arrays.asList("Insurance", "Heavy"), flow);
+        assertEquals(Arrays.asList("Insurance", "Heavy"), flow.stream()
+                .map(Department::getName)
+                .collect(Collectors.toList()));
     }
 
     @Test
@@ -44,9 +45,11 @@ public class ParcelProcessorTest {
         parcel.setValue(500.0);
         parcel.setWeight(0.5);
 
-        ArrayList<String> flow = processor.getPipelineFlow(parcel);
+        ArrayList<Department> flow = processor.getPipelineFlow(parcel,config);
 
-        assertEquals(Arrays.asList("Mail"), flow);
+        assertEquals(Arrays.asList("Mail"), flow.stream()
+                .map(Department::getName)
+                .collect(Collectors.toList()));
     }
 
     @Test
@@ -55,9 +58,11 @@ public class ParcelProcessorTest {
         parcel.setValue(1000.0);
         parcel.setWeight(5.0);
 
-        ArrayList<String> flow = processor.getPipelineFlow(parcel);
+        ArrayList<Department> flow = processor.getPipelineFlow(parcel,config);
 
-        assertEquals(Arrays.asList("Regular"), flow);
+        assertEquals(Arrays.asList("Regular"), flow.stream()
+                .map(Department::getName)
+                .collect(Collectors.toList()));
 
         }
     @Test
@@ -66,9 +71,11 @@ public class ParcelProcessorTest {
         parcel.setValue(500.0);
         parcel.setWeight(1.0);
 
-        ArrayList<String> flow = processor.getPipelineFlow(parcel);
+        ArrayList<Department> flow = processor.getPipelineFlow(parcel,config);
 
-        assertEquals(Arrays.asList("Mail"), flow);
+        assertEquals(Arrays.asList("Mail"), flow.stream()
+                .map(Department::getName)
+                .collect(Collectors.toList()));
     }
     @Test
     @DisplayName("Boundary: weight exactly 10 goes to Regular")
@@ -76,9 +83,11 @@ public class ParcelProcessorTest {
         parcel.setValue(500.0);
         parcel.setWeight(10.0);
 
-        ArrayList<String> flow = processor.getPipelineFlow(parcel);
+        ArrayList<Department> flow = processor.getPipelineFlow(parcel,config);
 
-        assertEquals(Arrays.asList("Regular"), flow);
+        assertEquals(Arrays.asList("Regular"), flow.stream()
+                .map(Department::getName)
+                .collect(Collectors.toList()));
     }
 
 

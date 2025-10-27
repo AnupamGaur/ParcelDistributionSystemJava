@@ -2,6 +2,8 @@ package in.anupam;
 
 import in.anupam.config.ConfigLoader;
 import in.anupam.demos.demo1;
+import in.anupam.demos.demo2;
+import in.anupam.demos.demo3;
 import in.anupam.models.Container;
 
 import in.anupam.models.Parcel;
@@ -19,6 +21,7 @@ import static in.anupam.parsers.ParcelXMLParser.parseXml;
 
 public class Main {
     public static void main(String[] args) throws JAXBException, FileNotFoundException {
-        demo1.main(new String[]{});
+//        demo1.main(new String[]{});
+        demo1.runDemo();
     }
 }

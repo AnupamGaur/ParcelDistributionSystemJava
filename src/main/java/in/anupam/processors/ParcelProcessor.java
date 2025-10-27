@@ -14,8 +14,8 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class ParcelProcessor {
-    public ArrayList<Department> getPipelineFlow(Object ob) {
-        final List<RuleEntry> RULES = ConfigLoader.loadRules("config.json");
+    public ArrayList<Department> getPipelineFlow(Object ob, String config) {
+        final List<RuleEntry> RULES = ConfigLoader.loadRules(config);
         ArrayList<Department> flow = new ArrayList<>();
         Map<Integer, List<RuleEntry>> byLevel = RULES.stream()
                 .collect(Collectors.groupingBy(r -> r.level, TreeMap::new, Collectors.toList()));
