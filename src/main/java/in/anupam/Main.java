@@ -1,8 +1,27 @@
 package in.anupam;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import in.anupam.config.ConfigLoader;
+import in.anupam.demos.demo1;
+import in.anupam.demos.demo2;
+import in.anupam.demos.demo3;
+import in.anupam.models.Container;
+
+import in.anupam.models.Parcel;
+import in.anupam.models.Receipient;
+import in.anupam.processors.ParcelProcessor;
+import in.anupam.rules.RuleEntry;
+
+import jakarta.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static in.anupam.parsers.ParcelXMLParser.parseXml;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JAXBException, FileNotFoundException {
+//        demo1.main(new String[]{});
+        demo1.runDemo();
     }
 }
